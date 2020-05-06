@@ -8,6 +8,7 @@
         Ticketee
       <% end %>
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,10 +17,31 @@
   </head>
 
   <body>
-    <% flash.each do |key, message| %>
-      <div><%= message %></div>
-    <% end %>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <%= link_to "Ticketee", root_path, class: "navbar-brand"%>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item <%= 'active' if current_page?('/') %>">
+              <%= link_to "Home", root_path, class: "nav-link"%> 
+            </>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-    <%= yield %>
+
+    <div class="container">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key %>%">
+          <%= message %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,16 +1,21 @@
-<% title(@project.name, "Projects") %>
+<header>
+  <% title(@project.name, "Projects") %>
 
-<h1><%= @project.name %></h1>
+  <h1><%= @project.name %></h1>
+  <ul class="actions">
+    <li><%= link_to  "Edit Project", edit_project_path(@project), class: "edit" %></li>
+    <li><%= link_to "Delete Project", project_path(@project), method: :delete, data: {confirm: 'Are you sure? '}, class: "delete" %></li>
+  </ul>
+
+  
+</header>
 
 <p><%= @project.description %></p>
-
-<%= link_to "Edit Project", edit_project_path(@project) %> | <%= link_to "Delete Project", project_path(@project), method: :delete, data: {confirm: 'Are you sure? '} %>
-
 <header>
   <h2>Ticket</h2>
   
   <ul class="actions">
-    <li><%= link_to "New Ticket", new_project_ticket_path(@project) %></li>
+    <li><%= link_to "New Ticket", new_project_ticket_path(@project), class: "new" %></li>
   </ul>
 </header>
 
