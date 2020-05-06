@@ -61,3 +61,4 @@ gem "bootstrap", "= 4.4.1"
 gem "font-awesome-rails", "= 4.7.0.5"
 
 gem "bootstrap_form", "= 4.4.0"
+gem 'devise', '~> 4.7.1'
