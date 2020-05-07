@@ -14,3 +14,14 @@
     <li><%= link_to "Delete Ticket", [@project, @ticket], method: :delete, data: { confirm: 'Are you sure?'}%></li>
   </ul>
 </div>
+
+<table>
+  <tr>
+    <th>Author:<th>
+    <td><%= @ticket.author.email %></td>
+  </tr>
+  <tr>
+    <th>Created: </th>
+    <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
+  </tr>
+</table>
