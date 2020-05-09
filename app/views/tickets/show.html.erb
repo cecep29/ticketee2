@@ -24,6 +24,13 @@
     <th>Created: </th>
     <td><%= time_ago_in_words(@ticket.created_at) %> ago</td>
   </tr>
+
+  <dl class="attributes">
+    <% if @ticket.state.present? %>
+      <dt>State: </dt>
+      <dd><%= render @ticket.state %></dd>
+    <% end %>
+  </dl>
 </table>
 
 <div class="comments">
